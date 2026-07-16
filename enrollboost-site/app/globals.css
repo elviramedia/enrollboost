@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FAF9F6;
+  color: #14213D;
+}
+
+::selection {
+  background: rgba(245, 130, 31, 0.2);
+  color: #14213D;
+}
+
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+/* Subtle noise / gradient helpers */
+.gradient-mesh {
+  background:
+    radial-gradient(60% 60% at 15% 0%, rgba(44,123,229,0.10) 0%, transparent 60%),
+    radial-gradient(50% 50% at 100% 20%, rgba(245,130,31,0.10) 0%, transparent 55%);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(20, 33, 61, 0.08);
+}
+
+.ink-gradient {
+  background: linear-gradient(120deg, #14213D 0%, #23345c 55%, #2C7BE5 130%);
+}
