@@ -29,8 +29,8 @@ export function GHLBooking() {
           src={GHL_BOOKING_SRC}
           title="Book an Enrollment Strategy Session"
           id="MQ4CFV4X4PLE1Wbk4pvu_1784179171744"
-          className="h-[720px] w-full border-0"
-          scrolling="no"
+          className="h-[900px] w-full border-0"
+          scrolling="yes"
         />
       ) : (
         <div className="flex flex-col items-center justify-center gap-2 px-6 py-20 text-center">
