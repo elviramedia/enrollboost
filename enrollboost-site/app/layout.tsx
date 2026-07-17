@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { OrganizationJsonLd } from "@/components/json-ld";
+import { MetaPixel } from "@/components/meta-pixel";
 import { SITE_URL } from "@/lib/utils";
 
 const inter = Inter({
@@ -53,6 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen bg-paper font-sans antialiased">
+        <MetaPixel />
         <OrganizationJsonLd />
         <SiteHeader />
         <main>{children}</main>
