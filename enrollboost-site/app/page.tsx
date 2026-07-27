@@ -4,6 +4,7 @@ import { FunnelSection } from "@/components/sections/funnel";
 import { Problems } from "@/components/sections/problems";
 import { HowItWorks } from "@/components/sections/how-it-works";
 import { WhyUs } from "@/components/sections/why-us";
+import { FormsPromo } from "@/components/sections/forms-promo";
 import { CaseStudies } from "@/components/sections/case-studies";
 import { Testimonials } from "@/components/sections/testimonials";
 import { FAQ } from "@/components/sections/faq";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Problems />
       <HowItWorks />
       <WhyUs />
+      <FormsPromo />
       <CaseStudies preview />
       <Testimonials />
       <FAQ />

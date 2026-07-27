@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
+import { AnnouncementBanner } from "@/components/announcement-banner";
 import { SiteFooter } from "@/components/site-footer";
 import { OrganizationJsonLd } from "@/components/json-ld";
-import { MetaPixel } from "@/components/meta-pixel";
 import { SITE_URL } from "@/lib/utils";
 
 const inter = Inter({
@@ -54,8 +54,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen bg-paper font-sans antialiased">
-        <MetaPixel />
         <OrganizationJsonLd />
+        <AnnouncementBanner />
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
