@@ -29,7 +29,7 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        "fixed inset-x-0 top-10 z-50 transition-all duration-300",
         scrolled ? "py-2" : "py-4"
       )}
     >
