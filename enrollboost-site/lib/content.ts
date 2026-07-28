@@ -147,3 +147,103 @@ export const FAQS = [
     a: "No. The point is to take work off your team's plate. We handle the campaigns, funnels, and automation, and give you clear reporting on what matters.",
   },
 ] as const;
+
+export const CASE_STUDY_DETAILS = {
+  "ace-amandla": {
+    slug: "ace-amandla",
+    school: "ACE Amandla Charter High School",
+    type: "Public Charter · Chicago, IL",
+    period: "60-day enrollment pilot",
+    channel: "Meta · Facebook & Instagram",
+    headline: "A 60-day pilot enrolled 6 new students — at just $400 each.",
+    intro:
+      "ACE Amandla partnered with EnrollBoost to run a lead-generation campaign across Facebook and Instagram targeting local families. In 60 days, the pilot reached tens of thousands of Chicago households, generated 66 qualified enrollment leads, and converted 6 of them into enrolled students — each worth roughly a full year of per-pupil funding.",
+    heroStats: [
+      { value: "$2,400", label: "Total pilot investment", note: "incl. all ad spend & management" },
+      { value: "6", label: "New students enrolled", note: "from 66 qualified leads" },
+      { value: "$400", label: "Cost per enrollment", note: "all-in acquisition cost" },
+      { value: "~$72K", label: "First-year funding generated", note: "6 students × ~$12K per pupil", highlight: true },
+    ],
+    funnel: [
+      { label: "Impressions delivered", value: "83,083" },
+      { label: "Link clicks to landing", value: "1,765", note: "2.12% click-through rate" },
+      { label: "Qualified enrollment leads", value: "66", note: "3.7% of clicks → lead · $18.63 per lead" },
+      { label: "Students enrolled", value: "6", note: "9.1% lead-to-enrollment conversion" },
+    ],
+    metrics: [
+      { label: "Media spend (Meta)", value: "$1,229" },
+      { label: "Impressions", value: "83,083" },
+      { label: "Link clicks", value: "1,765" },
+      { label: "Click-through rate", value: "2.12%" },
+      { label: "Cost per click", value: "$0.70" },
+      { label: "Cost per 1,000 impr. (CPM)", value: "$14.80" },
+      { label: "Qualified leads", value: "66" },
+      { label: "Cost per lead", value: "$18.63" },
+      { label: "Creatives tested", value: "17 ads" },
+    ],
+    roi: {
+      formula: "Invest $2,400 → 6 students × ~$12,000 = ~$72,000 = +$69,600 net",
+      note: "Per-student value based on a conservative estimate of CPS charter per-pupil funding (Per Capita Tuition Charge, FY2026). If these students remain through graduation, the four-year value approaches ~$288,000.",
+      multiple: "30×",
+      subtitle: "First-year return · ~2,900% ROI",
+    },
+    creatives: [
+      { rank: "1", name: "Student testimonial (video)", leads: "33 leads" },
+    ],
+    quote: null,
+    disclaimer:
+      "Figures sourced from the client's Meta Ads Manager reporting. Per-student value reflects a conservative estimate of CPS charter per-pupil funding (Per Capita Tuition Charge, FY2026); ROI figures are illustrative of first-year funding, not guaranteed.",
+  },
+  "elba-public-schools": {
+    slug: "elba-public-schools",
+    school: "Elba Public Schools",
+    type: "Rural Public District · Elba, NE",
+    period: "60-day enrollment pilot",
+    channel: "Meta · Facebook & Instagram",
+    headline: "A 60-day ad campaign brought 8 new students to a rural Nebraska district.",
+    intro:
+      "Elba Public Schools partnered with EnrollBoost to recruit students from Elba and the surrounding towns. In 60 days, geo-targeted Facebook and Instagram campaigns reached tens of thousands of families across central Nebraska, generated 59 enrollment leads, and brought 8 new students into the district — with a 9th still pending. Each new student represents roughly a full year of state per-pupil funding.",
+    heroStats: [
+      { value: "$1,724", label: "Total ad spend", note: "60-day enrollment pilot" },
+      { value: "8", label: "New students enrolled", note: "up to 9 pending follow-through" },
+      { value: "$216", label: "Cost per enrollment", note: "from 59 qualified leads" },
+      { value: "~$131K", label: "First-year funding generated", note: "8 students × ~$16.4K per pupil", highlight: true },
+    ],
+    funnel: [
+      { label: "Impressions delivered", value: "147,013" },
+      { label: "Link clicks to landing", value: "1,844", note: "1.25% click-through rate" },
+      { label: "Qualified enrollment leads", value: "59", note: "$29.23 per lead" },
+      { label: "Students enrolled", value: "8", note: "13.6% lead-to-enrollment conversion" },
+    ],
+    metrics: [
+      { label: "Ad spend (Meta)", value: "$1,724" },
+      { label: "Impressions", value: "147,013" },
+      { label: "Link clicks", value: "1,844" },
+      { label: "Click-through rate", value: "1.25%" },
+      { label: "Cost per click", value: "$0.94" },
+      { label: "Cost per 1,000 impr. (CPM)", value: "$11.73" },
+      { label: "Qualified leads", value: "59" },
+      { label: "Cost per lead", value: "$29.23" },
+      { label: "Creatives tested", value: "20 ads" },
+    ],
+    roi: {
+      formula: "Invest $1,724 → 8 students × ~$16,400 = ~$131,200 = +$129,476 net",
+      note: "Per-student value based on Nebraska's statewide average per-pupil funding (~$16,400). K-12 students often stay enrolled for years, so the multi-year value of these 8 students compounds well beyond the first year.",
+      multiple: "76×",
+      subtitle: "First-year return · ~7,500% ROI",
+    },
+    creatives: [
+      { rank: "1", name: "Video ad", leads: "25 leads" },
+      { rank: "2", name: "Video ad – copy", leads: "8 leads" },
+      { rank: "3", name: "\"WANTED – Grand Island\" (geo)", leads: "5 leads" },
+      { rank: "4", name: "Teachers truly know their child", leads: "5 leads" },
+      { rank: "5", name: "Distance shouldn't limit opportunity", leads: "5 leads" },
+    ],
+    quote: {
+      text: "If everyone follows through, we will have 8 new students this year because of your ads. So thank you for all the work you did for us!",
+      role: "Superintendent, Elba Public Schools, Nebraska",
+    },
+    disclaimer:
+      "Figures sourced from the client's Meta Ads Manager reporting. Per-student value reflects Nebraska's statewide average per-pupil funding (~$16,400, 2021–22; source: USAFacts) and will vary by district; ROI figures are illustrative of first-year funding, not guaranteed. A 9th enrollment was pending at time of reporting.",
+  },
+} as const;
