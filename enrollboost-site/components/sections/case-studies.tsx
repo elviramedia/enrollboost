@@ -84,12 +84,19 @@ export function CaseStudies({ preview = false }: { preview?: boolean }) {
               ))}
             </div>
 
-            {preview && (
+            {preview ? (
               <Link
                 href="/case-studies"
                 className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-ink"
               >
                 See all case studies <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            ) : (
+              <Link
+                href={`/case-studies/${study.slug}`}
+                className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-ink"
+              >
+                Read the full case study <ArrowUpRight className="h-4 w-4" />
               </Link>
             )}
           </motion.div>
