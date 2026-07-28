@@ -87,39 +87,27 @@ export const WHY_US = [
 
 export const CASE_STUDIES = [
   {
-    slug: "riverside-charter",
-    school: "Riverside Charter Academy",
-    type: "Charter · K-8",
-    challenge: "Declining enrollment for three straight years and a new competing charter opening nearby.",
-    campaign: "Always-on Meta awareness campaign + short-form video showcasing the STEM program, backed by CRM follow-up.",
+    slug: "ace-amandla",
+    school: "ACE Amandla Charter High School",
+    type: "Public Charter · Chicago, IL",
+    challenge: "A STEM-focused charter on Chicago's Southwest Side needed to fill seats in a competitive school-choice market — and every empty seat meant a full year of per-pupil funding left on the table.",
+    campaign: "A three-month Meta (Facebook & Instagram) lead campaign reached 83,000+ local households and generated 66 qualified enrollment leads, anchored by a student testimonial video and fast follow-up.",
     results: [
-      { value: "+118", label: "new applications" },
-      { value: "3.2x", label: "tour bookings" },
-      { value: "41 days", label: "to full waitlist" },
+      { value: "6", label: "new students enrolled" },
+      { value: "$400", label: "all-in cost per enrollment" },
+      { value: "30×", label: "first-year return" },
     ],
   },
   {
-    slug: "st-agnes",
-    school: "St. Agnes Private School",
-    type: "Private · PreK-12",
-    challenge: "Beautiful campus and strong academics, but almost no digital presence and poorly attended open houses.",
-    campaign: "Enrollment funnel + landing pages tied to the application window, with automated parent nurture sequences.",
+    slug: "elba-public-schools",
+    school: "Elba Public Schools",
+    type: "Rural Public District · Elba, NE",
+    challenge: "A small rural Nebraska district competing for students across a wide, sparsely populated region, where distance and low awareness kept nearby families from ever considering Elba.",
+    campaign: "Six months of geo-targeted Meta campaigns reached tens of thousands of families across central Nebraska and generated 59 enrollment leads, with messaging built around small classes and teachers who know every child.",
     results: [
-      { value: "+64%", label: "open house attendance" },
-      { value: "$0.71", label: "cost per lead" },
-      { value: "+52", label: "enrollments YoY" },
-    ],
-  },
-  {
-    slug: "mountain-view-district",
-    school: "Mountain View USD",
-    type: "Public District · K-12",
-    challenge: "Losing students to neighboring districts and unaware families choosing schools out of area.",
-    campaign: "District-wide awareness strategy highlighting signature programs, with per-school landing pages and analytics.",
-    results: [
-      { value: "+230", label: "inquiries in Q1" },
-      { value: "6 schools", label: "above target" },
-      { value: "+$1.9M", label: "projected funding" },
+      { value: "8", label: "new students enrolled" },
+      { value: "$216", label: "cost per enrollment" },
+      { value: "76×", label: "first-year return" },
     ],
   },
 ] as const;
@@ -127,21 +115,9 @@ export const CASE_STUDIES = [
 export const TESTIMONIALS = [
   {
     quote:
-      "We didn't have a marketing problem — we had an awareness problem, and we didn't even know it. EnrollBoost showed us exactly where families were falling out of the funnel.",
-    name: "Dr. Lena Ortiz",
-    role: "Superintendent, Mountain View USD",
-  },
-  {
-    quote:
-      "For the first time our open house had a waiting list. The follow-up system alone paid for itself in a single enrollment cycle.",
-    name: "Marcus Bell",
-    role: "Head of School, St. Agnes",
-  },
-  {
-    quote:
-      "They understand school funding and enrollment windows better than any agency we've talked to. It never felt like marketing — it felt like strategy.",
-    name: "Priya Nair",
-    role: "Enrollment Director, Riverside Charter",
+      "If everyone follows through, we will have 8 new students this year because of your ads. So thank you for all the work you did for us!",
+    name: "Superintendent",
+    role: "Elba Public Schools, Nebraska",
   },
 ] as const;
 
