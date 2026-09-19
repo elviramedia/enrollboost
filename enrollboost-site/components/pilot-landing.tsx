@@ -246,7 +246,7 @@ export function PilotLanding() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 text-pretty text-lg leading-relaxed text-ink-muted">
-                One flat pilot. Everything done for you. Proof before you scale.
+                One pilot. Everything done for you. Proof before you scale.
               </p>
             </Reveal>
           </div>
@@ -270,10 +270,10 @@ export function PilotLanding() {
 
               <div className="ink-gradient px-8 py-10 text-center text-white md:px-12">
                 <p className="text-xl font-semibold sm:text-2xl">
-                  $1,500 flat + about $20/day in ad spend
+                  $1,500&ndash;$3,000 + about $20/day in ad spend
                 </p>
                 <p className="mt-2 text-white/70">
-                  Most districts make it back with a single new student.
+                  Scoped to your district &mdash; and most make it back with a single new student.
                 </p>
                 <p className="mx-auto mt-6 max-w-xl rounded-2xl bg-white/10 px-5 py-4 text-sm leading-relaxed text-white/80">
                   It&apos;s a 60-day pilot, not a contract. See the results, then decide to scale.
