@@ -8,11 +8,9 @@ import { cn } from "@/lib/utils";
 import { BOOKING_URL } from "@/lib/utils";
 
 const NAV = [
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "Services", href: "/services" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "About", href: "/about" },
-  { label: "Resources", href: "/resources" },
+  { label: "Results", href: "/#results" },
+  { label: "The Offer", href: "/#offer" },
+  { label: "How It Works", href: "/#how" },
 ];
 
 export function SiteHeader() {
@@ -29,7 +27,7 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-10 z-50 transition-all duration-300",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled ? "py-2" : "py-4"
       )}
     >
@@ -64,7 +62,7 @@ export function SiteHeader() {
 
           <div className="hidden items-center gap-3 lg:flex">
             <Button href={BOOKING_URL} variant="primary" size="md">
-              Book a Strategy Session
+              Book Your 60-Day Pilot
             </Button>
           </div>
 
@@ -91,7 +89,7 @@ export function SiteHeader() {
                 </Link>
               ))}
               <Button href={BOOKING_URL} variant="primary" className="mt-2 w-full">
-                Book a Strategy Session
+                Book Your 60-Day Pilot
               </Button>
             </div>
           </div>

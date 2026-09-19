@@ -20,7 +20,7 @@ export function BookingCTA({
           <div className="relative mx-auto max-w-2xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white/80">
               <CalendarCheck className="h-3.5 w-3.5" />
-              Enrollment Strategy Session
+              Book Your 60-Day Pilot
             </span>
             <h2 className="mt-6 text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl">
               {title}
