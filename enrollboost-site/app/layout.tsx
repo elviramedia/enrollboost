@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { OrganizationJsonLd } from "@/components/json-ld";
 import { MetaPixel } from "@/components/meta-pixel";
+import { ChatWidget } from "@/components/chat-widget";
 import { SITE_URL } from "@/lib/utils";
 
 const inter = Inter({
@@ -55,6 +56,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen bg-paper font-sans antialiased">
         <MetaPixel />
+        <ChatWidget />
         <OrganizationJsonLd />
         <SiteHeader />
         <main>{children}</main>
