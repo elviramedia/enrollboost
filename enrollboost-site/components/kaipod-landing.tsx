@@ -86,10 +86,8 @@ function SeatGrid() {
 
 export function KaiPodLanding() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    if (!submitted) return;
     const id = "ghl-form-embed";
     if (document.getElementById(id)) return;
     const s = document.createElement("script");
@@ -97,7 +95,7 @@ export function KaiPodLanding() {
     s.src = "https://link.msgsndr.com/js/form_embed.js";
     s.async = true;
     document.body.appendChild(s);
-  }, [submitted]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] font-[family-name:var(--font-dm)] text-[#14213D] antialiased">
@@ -105,7 +103,7 @@ export function KaiPodLanding() {
       <header className="border-b border-[#14213D]/5 bg-[#F8FAFC]/80 px-5 py-4 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between">
           <Logo />
-          <a href="#claim" className="hidden text-sm font-bold text-[#F5821F] sm:block">Claim your page →</a>
+          <a href="#claim" className="hidden text-sm font-bold text-[#F5821F] sm:block">Book a call →</a>
         </div>
       </header>
 
@@ -306,91 +304,25 @@ export function KaiPodLanding() {
         </div>
       </section>
 
-      {/* 9. FINAL CTA + FORM */}
+      {/* 9. FINAL CTA + BOOKING CALENDAR */}
       <section id="claim" className="scroll-mt-6 px-5 py-16">
         <div className="mx-auto max-w-2xl">
-          {submitted ? (
-            <div className="rounded-3xl border border-[#14213D]/10 bg-white p-6 text-center shadow-xl sm:p-10">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#F5821F]/15">
-                <Check className="h-7 w-7 text-[#F5821F]" />
-              </div>
-              <h2 className={`mt-5 text-3xl text-[#14213D] ${HEAD}`}>Thanks! Grab a time for your 20-minute call</h2>
-              <p className="mt-2 text-[15px] text-[#14213D]/60">Pick a slot that works — we&apos;ll bring your landing page.</p>
-              <div className="mt-6 overflow-hidden rounded-2xl border border-[#14213D]/10">
-                <iframe
-                  src={BOOKING_SRC}
-                  title="Book your 20-minute call"
-                  id="MQ4CFV4X4PLE1Wbk4pvu_kaipod"
-                  className="h-[720px] w-full border-0"
-                  scrolling="yes"
-                />
-              </div>
+          <div className="rounded-3xl border border-[#14213D]/10 bg-white p-6 shadow-xl sm:p-10">
+            <h2 className={`text-3xl text-[#14213D] sm:text-4xl ${HEAD}`}>Let&apos;s build your landing page.</h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-[#14213D]/70">
+              Grab a time for a 20-minute call. Tell us about your school and we&apos;ll send your
+              page before you pay anything.
+            </p>
+            <div className="mt-7 overflow-hidden rounded-2xl border border-[#14213D]/10">
+              <iframe
+                src={BOOKING_SRC}
+                title="Book your 20-minute call"
+                id="MQ4CFV4X4PLE1Wbk4pvu_kaipod"
+                className="h-[720px] w-full border-0"
+                scrolling="yes"
+              />
             </div>
-          ) : (
-            <div className="rounded-3xl border border-[#14213D]/10 bg-white p-6 shadow-xl sm:p-10">
-              <h2 className={`text-3xl text-[#14213D] sm:text-4xl ${HEAD}`}>Let&apos;s build your landing page.</h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#14213D]/70">
-                Tell us about your school. We&apos;ll send your page before you pay anything.
-              </p>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSubmitted(true);
-                  window.scrollTo({ top: window.scrollY, behavior: "auto" });
-                }}
-                className="mt-7 space-y-4"
-              >
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <Field name="firstName" label="First name" required />
-                  <Field name="lastName" label="Last name" required />
-                </div>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <Field name="email" label="Email" type="email" required />
-                  <Field name="phone" label="Mobile phone" type="tel" required />
-                </div>
-                <Field name="school" label="School name" required />
-                <Field name="cityState" label="City and state" required />
-
-                <div>
-                  <Label>Are you part of the KaiPod network?</Label>
-                  <div className="mt-2 grid grid-cols-2 gap-3">
-                    {["Yes", "No"].map((v) => (
-                      <label key={v} className="flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-[#14213D]/15 bg-[#F8FAFC] px-4 py-3 text-sm font-semibold text-[#14213D] has-[:checked]:border-[#F5821F] has-[:checked]:bg-[#F5821F]/10">
-                        <input type="radio" name="kaipod" value={v} className="accent-[#F5821F]" required />
-                        {v}
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                <Field name="enrollment" label="Current enrollment vs. capacity" placeholder="e.g. 11 of 25" />
-                <Field name="findYou" label="How do most families find you now?" />
-
-                <div>
-                  <Label>Biggest enrollment challenge</Label>
-                  <select
-                    name="challenge"
-                    className="mt-2 h-12 w-full rounded-xl border border-[#14213D]/15 bg-[#F8FAFC] px-4 text-[15px] text-[#14213D] outline-none focus:border-[#F5821F]"
-                    defaultValue=""
-                  >
-                    <option value="" disabled>Select one…</option>
-                    <option>Not enough inquiries</option>
-                    <option>Inquiries don&apos;t convert</option>
-                    <option>No time for marketing</option>
-                    <option>Ads aren&apos;t working</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-
-                <button
-                  type="submit"
-                  className="mt-2 flex h-14 w-full items-center justify-center rounded-full bg-[#F5821F] px-8 text-base font-bold text-[#14213D] shadow-lg shadow-[#F5821F]/25 transition-transform active:scale-[0.99] hover:-translate-y-0.5"
-                >
-                  Claim my free landing page
-                </button>
-              </form>
-            </div>
-          )}
+          </div>
         </div>
       </section>
 
@@ -410,28 +342,6 @@ export function KaiPodLanding() {
           </p>
         </div>
       </footer>
-    </div>
-  );
-}
-
-function Label({ children }: { children: React.ReactNode }) {
-  return <span className="block text-sm font-semibold text-[#14213D]">{children}</span>;
-}
-
-function Field({
-  name, label, type = "text", required = false, placeholder,
-}: { name: string; label: string; type?: string; required?: boolean; placeholder?: string }) {
-  return (
-    <div>
-      <label htmlFor={name}><Label>{label}{required && <span className="text-[#F5821F]"> *</span>}</Label></label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        required={required}
-        placeholder={placeholder}
-        className="mt-2 h-12 w-full rounded-xl border border-[#14213D]/15 bg-[#F8FAFC] px-4 text-[15px] text-[#14213D] outline-none transition-colors placeholder:text-[#14213D]/35 focus:border-[#F5821F]"
-      />
     </div>
   );
 }
