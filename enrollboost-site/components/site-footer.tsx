@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { GraduationCap } from "lucide-react";
 
 const COLS = [
@@ -31,6 +34,8 @@ const COLS = [
 ];
 
 export function SiteFooter() {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/kaipod")) return null;
   return (
     <footer className="border-t border-ink/10 bg-paper-soft">
       <div className="container py-16">
