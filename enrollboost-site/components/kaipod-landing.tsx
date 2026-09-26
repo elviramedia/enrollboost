@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { GraduationCap, Check, X, Shield, Plus, MousePointerClick, FileText, Inbox, CalendarCheck } from "lucide-react";
+import { GraduationCap, Check, X, Shield, Plus, MousePointerClick, FileText, Inbox, CalendarCheck, Star } from "lucide-react";
 
 const HEAD = "font-[family-name:var(--font-bricolage)] font-extrabold tracking-tight";
 const BOOKING_SRC = "https://api.leadconnectorhq.com/widget/booking/MQ4CFV4X4PLE1Wbk4pvu";
@@ -44,21 +44,52 @@ const STEPS = [
   { icon: CalendarCheck, text: "Families book discovery calls with you." },
 ];
 
-const STACK = [
-  { text: "Custom landing page, Newton form built in", tag: "FREE", highlight: true },
-  { text: "Meta lead ads, set up and managed for you", tag: "Included" },
-  { text: "Leads drop into your existing Newton drip", tag: "Included" },
-  { text: "Radius targeting + A/B tested creative", tag: "Included" },
-  { text: "Monthly results check-in (leads, calls booked, cost per lead)", tag: "Included" },
-  { text: "Open house + virtual coffee chat playbook", tag: "Bonus", bonus: true },
+type Feature = { text: string; free?: boolean; strong?: boolean };
+type Plan = { name: string; price: string; tagline: string; highlight: boolean; badge?: string; features: Feature[]; cta: string };
+
+const PLANS: Plan[] = [
+  {
+    name: "Seat-Filler",
+    price: "$297",
+    tagline: "Get found. Fill your Newton form.",
+    highlight: false,
+    features: [
+      { text: "Custom landing page with your Newton form built in", free: true },
+      { text: "Meta lead ads — set up & managed for you" },
+      { text: "Leads drop into your existing Newton drip" },
+      { text: "Radius targeting + A/B tested creative" },
+      { text: "Monthly results check-in (leads, calls, cost per lead)" },
+      { text: "Bonus: Open house + virtual coffee chat playbook" },
+    ],
+    cta: "Start with Seat-Filler",
+  },
+  {
+    name: "Seat-Filler Pro",
+    price: "$497",
+    tagline: "Everything in Seat-Filler — plus the whole system that follows up for you.",
+    highlight: true,
+    badge: "Most popular",
+    features: [
+      { text: "Everything in Seat-Filler", strong: true },
+      { text: "Full HighLevel CRM & automation — built and run for you" },
+      { text: "Instant SMS text-back the moment a parent inquires" },
+      { text: "AI agent that replies after hours — text & email" },
+      { text: "Booking calendars so families self-schedule tours" },
+      { text: "Email marketing + automated nurture sequences" },
+      { text: "Missed-call text-back — never lose a caller" },
+      { text: "One unified inbox: text, email & social DMs" },
+      { text: "Live dashboard: leads, calls booked, cost per lead" },
+    ],
+    cta: "Get the full system",
+  },
 ];
 
 const FAQS = [
   { q: "Do I have to leave KaiPod or Newton?", a: "No. Your Newton form and drip stay exactly as they are." },
+  { q: "What's the difference between the two plans?", a: "Seat-Filler ($297) fills your existing Newton form with fresh leads. Pro ($497) adds our full HighLevel system on top — instant text-back, an AI agent that answers after hours, booking calendars, and email marketing — so every lead gets followed up without you lifting a finger." },
   { q: "What does “free landing page” mean?", a: "We build it before you pay a cent. If you move forward, it's yours to keep, even if you cancel later." },
   { q: "How much should I spend on ads?", a: "Ad spend is paid directly to Meta, separate from our fee. Most schools start around $15–$20 a day, and you can adjust it anytime." },
-  { q: "Is there a contract?", a: "No. It's month-to-month and you can cancel anytime." },
-  { q: "Who is this for?", a: "KaiPod network microschools with open seats and a founder who's short on time." },
+  { q: "Is there a contract?", a: "No. Both plans are month-to-month and you can cancel anytime." },
   { q: "What if my school isn't a KaiPod school?", a: "We work with microschools and private schools too. Book a call and we'll tell you honestly if it's a fit." },
 ];
 
@@ -197,56 +228,101 @@ export function KaiPodLanding() {
         </div>
       </section>
 
-      {/* 5. OFFER STACK */}
-      <section className="px-5 py-14">
-        <div className="mx-auto max-w-3xl rounded-3xl bg-[#F5821F] p-5 sm:p-8">
-          <div className="rounded-2xl bg-white p-6 shadow-lg sm:p-9">
+      {/* 5. PRICING — TWO PLANS */}
+      <section className="px-5 py-16">
+        <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-2xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-[#2C7BE5]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-[#2C7BE5]">
-              The offer
+              Pick your plan
             </span>
-            <h2 className={`mt-4 text-3xl text-[#14213D] sm:text-4xl ${HEAD}`}>The KaiPod Seat-Filler</h2>
+            <h2 className={`mt-4 text-3xl text-[#14213D] sm:text-4xl ${HEAD}`}>Two ways to fill your seats.</h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-[#14213D]/70">
+              Start lean and fill your Newton form — or run the whole follow-up system on autopilot.
+              Both are month-to-month, and every plan starts with a free landing page.
+            </p>
+          </div>
 
-            <ul className="mt-7 divide-y divide-[#14213D]/10">
-              {STACK.map((item) => (
-                <li key={item.text} className="flex items-center justify-between gap-4 py-3.5">
-                  <span className="flex items-start gap-3 text-[15px] font-medium text-[#14213D]">
-                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#F5821F]" />
-                    {item.text}
+          <div className="mt-12 grid items-start gap-6 lg:grid-cols-2">
+            {PLANS.map((plan) => (
+              <div
+                key={plan.name}
+                className={
+                  "relative flex h-full flex-col rounded-3xl p-6 sm:p-8 " +
+                  (plan.highlight
+                    ? "bg-[#14213D] text-white shadow-2xl ring-2 ring-[#F5821F]"
+                    : "border border-[#14213D]/10 bg-white shadow-sm")
+                }
+              >
+                {plan.highlight && (
+                  <span className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-[#F5821F] px-4 py-1 text-xs font-bold uppercase tracking-wide text-[#14213D]">
+                    <Star className="h-3.5 w-3.5 fill-[#14213D]" /> {plan.badge}
                   </span>
-                  <span
-                    className={
-                      "shrink-0 rounded-full px-3 py-1 text-xs font-bold uppercase " +
-                      (item.highlight
-                        ? "bg-[#F5821F] text-[#14213D]"
-                        : item.bonus
-                          ? "bg-[#2C7BE5]/10 text-[#2C7BE5]"
-                          : "bg-[#14213D]/5 text-[#14213D]/60")
-                    }
-                  >
-                    {item.tag}
-                  </span>
-                </li>
-              ))}
-            </ul>
+                )}
+                <h3 className={`text-2xl ${HEAD} ${plan.highlight ? "text-white" : "text-[#14213D]"}`}>{plan.name}</h3>
+                <div className="mt-3 flex items-end gap-1">
+                  <span className={`text-5xl ${HEAD} ${plan.highlight ? "text-white" : "text-[#14213D]"}`}>{plan.price}</span>
+                  <span className={plan.highlight ? "pb-1.5 text-white/50" : "pb-1.5 text-[#14213D]/50"}>/month</span>
+                </div>
+                <p className={"mt-3 text-[15px] leading-relaxed " + (plan.highlight ? "text-white/70" : "text-[#14213D]/70")}>
+                  {plan.tagline}
+                </p>
 
-            <div className="mt-8 rounded-2xl bg-[#F8FAFC] p-6 text-center">
-              <p className={`text-5xl text-[#14213D] ${HEAD}`}>$297<span className="text-2xl text-[#14213D]/50">/month</span></p>
-              <p className="mt-1 text-sm text-[#14213D]/60">Month-to-month. Cancel anytime.</p>
-            </div>
+                <ul className="mt-6 flex-1 space-y-3.5">
+                  {plan.features.map((f) => (
+                    <li key={f.text} className="flex items-start gap-3">
+                      <Check className={"mt-0.5 h-5 w-5 shrink-0 " + (plan.highlight ? "text-[#F5821F]" : "text-[#F5821F]")} />
+                      <span
+                        className={
+                          "text-[15px] leading-snug " +
+                          (f.free ? "font-semibold " : "") +
+                          (f.strong ? "font-bold " : "") +
+                          (plan.highlight ? "text-white/90" : "text-[#14213D]")
+                        }
+                      >
+                        {f.text}
+                        {f.free && (
+                          <span className="ml-2 rounded-full bg-[#F5821F] px-2 py-0.5 text-[11px] font-bold uppercase text-[#14213D]">Free</span>
+                        )}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
 
-            <div className="mt-5 flex items-start gap-3 rounded-xl border border-[#2C7BE5]/20 bg-[#2C7BE5]/5 p-4">
+                {plan.highlight && (
+                  <p className="mt-6 rounded-xl bg-white/5 p-4 text-sm leading-relaxed text-white/70">
+                    Text automation, an after-hours AI agent, booking calendars, and email marketing —
+                    the tools most schools juggle separately — in one system we build and run for you.
+                  </p>
+                )}
+
+                <a
+                  href="#claim"
+                  className={
+                    "mt-6 flex h-14 w-full items-center justify-center rounded-full text-base font-bold transition-transform active:scale-[0.98] hover:-translate-y-0.5 " +
+                    (plan.highlight
+                      ? "bg-[#F5821F] text-[#14213D] shadow-lg shadow-[#F5821F]/30"
+                      : "border-2 border-[#F5821F] text-[#F5821F] hover:bg-[#F5821F]/5")
+                  }
+                >
+                  {plan.cta}
+                </a>
+              </div>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-10 max-w-2xl">
+            <div className="flex items-start gap-3 rounded-xl border border-[#2C7BE5]/20 bg-[#2C7BE5]/5 p-4">
               <Shield className="mt-0.5 h-5 w-5 shrink-0 text-[#2C7BE5]" />
               <p className="text-sm font-medium text-[#14213D]">
                 See your landing page before you pay. Cancel anytime and keep your page.
               </p>
             </div>
-
             <p className="mt-5 text-center text-sm font-semibold text-[#F5821F]">
               We take on 5 KaiPod schools per month.
             </p>
-            <div className="mt-4">
-              <CTAButton className="w-full">Claim your spot</CTAButton>
-            </div>
+            <p className="mt-1 text-center text-sm text-[#14213D]/50">
+              Not sure which plan? Book a call and we&apos;ll help you pick.
+            </p>
           </div>
         </div>
       </section>
@@ -268,19 +344,7 @@ export function KaiPodLanding() {
         </div>
       </section>
 
-      {/* 7. WANT MORE LATER */}
-      <section className="px-5 py-8">
-        <div className="mx-auto max-w-2xl rounded-2xl border border-[#14213D]/10 bg-white p-6 text-center">
-          <h3 className={`text-lg text-[#14213D] ${HEAD}`}>Want more later?</h3>
-          <p className="mt-2 text-sm leading-relaxed text-[#14213D]/70">
-            When seats start filling up, you can upgrade to our full HighLevel system for
-            $497/mo: instant text follow-up, AI replies after hours, booking calendars, and email
-            marketing in one place. It&apos;s optional and never required.
-          </p>
-        </div>
-      </section>
-
-      {/* 8. FAQ */}
+      {/* 7. FAQ */}
       <section className="px-5 py-14">
         <div className="mx-auto max-w-2xl">
           <h2 className={`text-center text-3xl text-[#14213D] sm:text-4xl ${HEAD}`}>Questions?</h2>
@@ -304,7 +368,7 @@ export function KaiPodLanding() {
         </div>
       </section>
 
-      {/* 9. FINAL CTA + BOOKING CALENDAR */}
+      {/* 8. FINAL CTA + BOOKING CALENDAR */}
       <section id="claim" className="scroll-mt-6 px-5 py-16">
         <div className="mx-auto max-w-2xl">
           <div className="rounded-3xl border border-[#14213D]/10 bg-white p-6 shadow-xl sm:p-10">
@@ -326,7 +390,7 @@ export function KaiPodLanding() {
         </div>
       </section>
 
-      {/* 10. FOOTER */}
+      {/* 9. FOOTER */}
       <footer className="border-t border-[#14213D]/10 bg-white px-5 py-10">
         <div className="mx-auto max-w-5xl">
           <div className="flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-between sm:text-left">
