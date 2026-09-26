@@ -8,9 +8,10 @@ import { cn } from "@/lib/utils";
 import { BOOKING_URL } from "@/lib/utils";
 
 const NAV = [
+  { label: "What We Do", href: "/#what-we-do" },
   { label: "Results", href: "/#results" },
-  { label: "The Offer", href: "/#offer" },
-  { label: "How It Works", href: "/#how" },
+  { label: "Compare", href: "/#compare" },
+  { label: "The Pilot", href: "/pilot" },
 ];
 
 export function SiteHeader() {
