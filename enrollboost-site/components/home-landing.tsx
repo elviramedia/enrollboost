@@ -93,6 +93,55 @@ const STEPS = [
   { n: "3", title: "You enroll", body: "Weekly reports and a Monday call list tell your team exactly who to contact." },
 ];
 
+const TIERS = [
+  {
+    name: "Lead Gen",
+    price: "$297",
+    tagline: "Get found. Fill your inquiry pipeline.",
+    highlight: false,
+    badge: "",
+    features: [
+      "Custom enrollment landing page",
+      "Managed Meta lead ads, targeted to your zones",
+      "Leads flow straight into your CRM",
+      "Radius targeting + A/B tested creative",
+      "Monthly results reporting",
+    ],
+  },
+  {
+    name: "Growth",
+    price: "$497",
+    tagline: "The full system that follows up for you.",
+    highlight: true,
+    badge: "Most popular",
+    features: [
+      "Everything in Lead Gen",
+      "Full CRM & automation, built and managed",
+      "Instant SMS + AI follow-up agents (text, email & voice)",
+      "Booking calendars so families self-schedule tours",
+      "Email marketing + automated nurture",
+      "Short-form video content",
+      "Weekly reporting dashboard",
+    ],
+  },
+  {
+    name: "Full Service",
+    price: "$1,500",
+    tagline: "We run your whole enrollment engine — including the calls.",
+    highlight: false,
+    badge: "Done for you",
+    features: [
+      "Everything in Growth",
+      "Our team calls your leads for you",
+      "Live appointment setting — we book tours onto your calendar",
+      "On-site video production",
+      "Dedicated enrollment strategist",
+      "Monthly strategy + planning calls",
+      "Priority support",
+    ],
+  },
+];
+
 const FAQS = [
   { q: "Are you an agency or software?", a: "Neither, exactly. We're a done-for-you enrollment growth team. You don't log into a platform or run campaigns — we build and run the whole system, and you get enrolled students and clear reporting." },
   { q: "How is this different from enrollment software?", a: "Enrollment platforms help you process applications and lotteries. We're upstream of that: we generate the families in the first place, then hand your team warm, ready-to-enroll leads." },
@@ -359,6 +408,70 @@ export function HomeLanding() {
               </StaggerItem>
             ))}
           </StaggerGroup>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section id="pricing" className="bg-paper-soft py-24 md:py-32">
+        <div className="container">
+          <Heading
+            eyebrow="Pricing"
+            title="Plans that scale with your seats."
+            description="Start where you need to and move up as enrollment grows. Every plan is done-for-you and month-to-month — most schools begin with a 60-day pilot first."
+          />
+          <div className="mt-14 grid items-start gap-6 lg:grid-cols-3">
+            {TIERS.map((tier) => (
+              <div
+                key={tier.name}
+                className={cn(
+                  "relative flex h-full flex-col rounded-3xl p-8",
+                  tier.highlight
+                    ? "ink-gradient text-white shadow-lift ring-2 ring-accent"
+                    : "border border-ink/10 bg-white shadow-soft"
+                )}
+              >
+                {tier.badge && (
+                  <span
+                    className={cn(
+                      "absolute -top-3 left-8 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide",
+                      tier.highlight ? "bg-accent text-ink" : "bg-brand-blue/10 text-brand-blue"
+                    )}
+                  >
+                    {tier.badge}
+                  </span>
+                )}
+                <h3 className={cn("text-xl font-semibold", tier.highlight ? "text-white" : "text-ink")}>{tier.name}</h3>
+                <div className="mt-3 flex items-end gap-1">
+                  <span className={cn("text-4xl font-semibold", tier.highlight ? "text-white" : "text-ink")}>{tier.price}</span>
+                  <span className={tier.highlight ? "pb-1 text-white/50" : "pb-1 text-ink-muted"}>/mo</span>
+                </div>
+                <p className={cn("mt-3 text-sm leading-relaxed", tier.highlight ? "text-white/70" : "text-ink-muted")}>{tier.tagline}</p>
+                <ul className="mt-6 flex-1 space-y-3">
+                  {tier.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3">
+                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                      <span
+                        className={cn(
+                          "text-sm leading-snug",
+                          f.startsWith("Everything in") && "font-semibold",
+                          tier.highlight ? "text-white/90" : "text-ink"
+                        )}
+                      >
+                        {f}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <Button href={BOOKING_URL} variant={tier.highlight ? "primary" : "secondary"} className="mt-8 w-full">
+                  Get started
+                </Button>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 text-center text-sm text-ink-muted">
+            Not sure where to start?{" "}
+            <a href="/pilot" className="font-semibold text-brand-blue hover:text-ink">Try a 60-day pilot first →</a>
+          </p>
         </div>
       </section>
 

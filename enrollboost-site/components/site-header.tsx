@@ -11,6 +11,7 @@ import { BOOKING_URL } from "@/lib/utils";
 const NAV = [
   { label: "What We Do", href: "/#what-we-do" },
   { label: "Results", href: "/#results" },
+  { label: "Pricing", href: "/#pricing" },
   { label: "Compare", href: "/#compare" },
   { label: "The Pilot", href: "/pilot" },
 ];
