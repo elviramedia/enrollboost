@@ -95,18 +95,19 @@ const STEPS = [
 
 const TIERS = [
   {
-    name: "Lead Gen",
+    name: "CRM Only",
     monthly: "$497",
     annual: "$297",
-    tagline: "Get found. Fill your inquiry pipeline.",
+    tagline: "The software that runs your enrollment — set up for you, run by you.",
     highlight: false,
-    badge: "",
+    badge: "Software only",
     features: [
-      "Custom enrollment landing page",
-      "Managed Meta lead ads, targeted to your zones",
-      "Leads flow straight into your CRM",
-      "Radius targeting + A/B tested creative",
-      "Monthly results reporting",
+      "Your own enrollment CRM, built & configured",
+      "Lead-capture landing page & inquiry forms",
+      "Pipeline & contact management",
+      "Email & SMS follow-up templates",
+      "Booking calendar for tours",
+      "Reporting dashboard",
     ],
   },
   {
@@ -117,8 +118,9 @@ const TIERS = [
     highlight: true,
     badge: "Most popular",
     features: [
-      "Everything in Lead Gen",
-      "Full CRM & automation, built and managed",
+      "Everything in CRM Only",
+      "Done-for-you Meta lead ads, targeted to your zones",
+      "Full automation & AI, built and managed",
       "Instant SMS + AI follow-up agents (text, email & voice)",
       "Booking calendars so families self-schedule tours",
       "Email marketing + automated nurture",
