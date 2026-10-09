@@ -31,7 +31,7 @@ const PROBLEMS = [
 const SERVICES = [
   { icon: Video, title: "In-house video production", solves: "Your school looks great in person but invisible online.", body: "Our in-house team films on your campus and turns it into scroll-stopping short-form video — the creative that makes families fall for your school before they ever visit." },
   { icon: Megaphone, title: "Targeted Meta advertising", solves: "The right families never see you.", body: "Precision Facebook & Instagram campaigns put your school in front of parents inside your enrollment zones — by geography, life stage, and intent." },
-  { icon: Search, title: "Nonprofit search ads (Ad Grant)", solves: "Free reach you're leaving on the table.", body: "For eligible nonprofit schools, we set up and manage the Google Ad Grant — up to $10,000/month in free search ads pointed at families already looking for schools like yours." },
+  { icon: Search, title: "Google Ad management", solves: "Parents are already searching — are you showing up?", body: "We build and manage your Google search campaigns so your school appears the moment a family looks. For eligible nonprofits, we set up the Google Ad Grant too — up to $10,000/month in free search ads." },
   { icon: LayoutTemplate, title: "Enrollment funnels & landing pages", solves: "Interest leaks out before it becomes an inquiry.", body: "Purpose-built pages and funnels turn a first impression into a real inquiry, mapped to your application windows — not a generic contact form." },
   { icon: Bot, title: "AI follow-up agents", solves: "Warm families go cold while your team is teaching.", body: "Text, email, and voice AI agents respond in seconds and keep nurturing every lead — so no interested family is ever forgotten in a spreadsheet." },
   { icon: BarChart3, title: "Analytics & reporting", solves: "You can't tell what's actually driving enrollment.", body: "Weekly reporting on what matters — inquiries, tours, applications, and enrolled students — not likes and impressions." },
@@ -51,7 +51,7 @@ const COMPARE = {
     { feature: "In-house video production team", vals: ["yes", "no", "partial"] },
     { feature: "Campaigns live in under 5 business days", vals: ["yes", "no", "no"] },
     { feature: "AI follow-up agents (text, email & voice)", vals: ["yes", "no", "no"] },
-    { feature: "Google Ad Grant setup for nonprofits", vals: ["yes", "no", "partial"] },
+    { feature: "Google Ad management, done for you", vals: ["yes", "no", "partial"] },
     { feature: "Done for you — we run everything", vals: ["yes", "no", "partial"] },
     { feature: "Measured in enrolled students, not clicks", vals: ["yes", "no", "no"] },
   ],
@@ -153,7 +153,7 @@ const FAQS = [
   { q: "How fast can you launch?", a: "Most campaigns are live in under five business days — including the on-site video shoot, ads, funnel, and follow-up automation." },
   { q: "Do we need staff or tech to run it?", a: "No. We handle the video, ads, funnels, and AI follow-up agents, and give you clear reporting. The point is to take work off your team." },
   { q: "What does it cost to start?", a: "Most schools start with a 60-day pilot ($1,500–$3,000 + about $20/day in ad spend). It's a pilot, not a contract — see the results, then decide to scale." },
-  { q: "Do you help nonprofit schools with Google Ad Grants?", a: "Yes. For eligible nonprofit schools we set up and manage the Google Ad Grant — up to $10,000/month in free search advertising." },
+  { q: "Do you manage Google Ads too?", a: "Yes. We build and run your Google search campaigns so you show up when parents search for schools. And for eligible nonprofit schools, we also set up the Google Ad Grant — up to $10,000/month in free search advertising." },
 ];
 
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
