@@ -96,7 +96,8 @@ const STEPS = [
 const TIERS = [
   {
     name: "Lead Gen",
-    price: "$297",
+    monthly: "$497",
+    annual: "$297",
     tagline: "Get found. Fill your inquiry pipeline.",
     highlight: false,
     badge: "",
@@ -110,7 +111,8 @@ const TIERS = [
   },
   {
     name: "Growth",
-    price: "$497",
+    monthly: "$797",
+    annual: "$497",
     tagline: "The full system that follows up for you.",
     highlight: true,
     badge: "Most popular",
@@ -126,7 +128,8 @@ const TIERS = [
   },
   {
     name: "Full Service",
-    price: "$1,500",
+    monthly: "$1,997",
+    annual: "$1,500",
     tagline: "We run your whole enrollment engine — including the calls.",
     highlight: false,
     badge: "Done for you",
@@ -417,7 +420,7 @@ export function HomeLanding() {
           <Heading
             eyebrow="Pricing"
             title="Plans that scale with your seats."
-            description="Start where you need to and move up as enrollment grows. Every plan is done-for-you and month-to-month — most schools begin with a 60-day pilot first."
+            description="Lock in a lower rate with a 12-month plan, or stay flexible month-to-month. Every plan is fully done-for-you — and most schools begin with a 60-day pilot first."
           />
           <div className="mt-14 grid items-start gap-6 lg:grid-cols-3">
             {TIERS.map((tier) => (
@@ -441,11 +444,19 @@ export function HomeLanding() {
                   </span>
                 )}
                 <h3 className={cn("text-xl font-semibold", tier.highlight ? "text-white" : "text-ink")}>{tier.name}</h3>
-                <div className="mt-3 flex items-end gap-1">
-                  <span className={cn("text-4xl font-semibold", tier.highlight ? "text-white" : "text-ink")}>{tier.price}</span>
-                  <span className={tier.highlight ? "pb-1 text-white/50" : "pb-1 text-ink-muted"}>/mo</span>
+                <div className="mt-3">
+                  <div className="flex items-end gap-1">
+                    <span className={cn("text-4xl font-semibold", tier.highlight ? "text-white" : "text-ink")}>{tier.annual}</span>
+                    <span className={tier.highlight ? "pb-1 text-white/50" : "pb-1 text-ink-muted"}>/mo</span>
+                  </div>
+                  <p className={cn("mt-1 text-xs font-semibold uppercase tracking-wide", tier.highlight ? "text-accent-soft" : "text-brand-blue")}>
+                    On a 12-month plan
+                  </p>
+                  <p className={cn("mt-2 text-sm", tier.highlight ? "text-white/60" : "text-ink-muted")}>
+                    <span className="line-through opacity-70">{tier.monthly}/mo</span> month-to-month
+                  </p>
                 </div>
-                <p className={cn("mt-3 text-sm leading-relaxed", tier.highlight ? "text-white/70" : "text-ink-muted")}>{tier.tagline}</p>
+                <p className={cn("mt-4 text-sm leading-relaxed", tier.highlight ? "text-white/70" : "text-ink-muted")}>{tier.tagline}</p>
                 <ul className="mt-6 flex-1 space-y-3">
                   {tier.features.map((f) => (
                     <li key={f} className="flex items-start gap-3">
