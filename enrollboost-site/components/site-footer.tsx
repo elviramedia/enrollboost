@@ -6,6 +6,15 @@ import { GraduationCap } from "lucide-react";
 
 const COLS = [
   {
+    title: "Explore",
+    links: [
+      { label: "What We Do", href: "/#what-we-do" },
+      { label: "Results", href: "/#results" },
+      { label: "Pricing", href: "/#pricing" },
+      { label: "The 60-Day Pilot", href: "/pilot" },
+    ],
+  },
+  {
     title: "Company",
     links: [
       { label: "About", href: "/about" },
@@ -14,19 +23,10 @@ const COLS = [
     ],
   },
   {
-    title: "Services",
+    title: "Legal",
     links: [
-      { label: "Awareness Campaigns", href: "/services#awareness" },
-      { label: "Enrollment Funnels", href: "/services#funnels" },
-      { label: "CRM Automation", href: "/services#crm" },
-      { label: "Short-form Video", href: "/services#video" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "Resources", href: "/resources" },
       { label: "Blog", href: "/blog" },
+      { label: "Resources", href: "/resources" },
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
     ],
@@ -51,8 +51,8 @@ export function SiteFooter() {
               </span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-muted">
-              Enrollment consultants that happen to use digital marketing. We help
-              K-12 schools become impossible to ignore.
+              Done-for-you enrollment growth for K-12 districts and charters — video, ads,
+              funnels, and AI follow-up, built and run for you.
             </p>
           </div>
 

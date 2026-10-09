@@ -340,6 +340,9 @@ export function HomeLanding() {
                   <figcaption className="mt-3 text-xs font-semibold text-ink-muted">{study.quote.role}</figcaption>
                 </figure>
               )}
+              <a href="/case-studies" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-ink">
+                See the full breakdown →
+              </a>
             </motion.div>
           </div>
         </div>
